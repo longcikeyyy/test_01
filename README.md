@@ -1,16 +1,112 @@
 # test_01
 
-A new Flutter project.
+Hướng dẫn cài đặt và chạy Flutter app.
 
-## Getting Started
+> Repo sử dụng chủ yếu: **Dart (Flutter)** và một ph��n **C++/CMake** (native), kèm **Swift** (iOS).
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 1) Yêu cầu môi trường
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Flutter
+- Cài **Flutter SDK** (khuyến nghị bản stable)
+- Kiểm tra môi trường:
+  ```bash
+  flutter doctor
+  ```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Android (nếu chạy Android)
+- Cài **Android Studio**
+- Cài Android SDK + Android SDK Platform Tools
+- Tạo/kiểm tra emulator hoặc cắm thiết bị thật (bật Developer options + USB debugging)
+
+### iOS (nếu chạy iOS)
+- Chỉ hỗ trợ trên **macOS**
+- Cài **Xcode**
+- Cài CocoaPods:
+  ```bash
+  sudo gem install cocoapods
+  ```
+
+---
+
+## 2) Cài dependencies
+
+Tại thư mục project:
+```bash
+flutter pub get
+```
+
+---
+
+## 3) Chạy app (Development)
+
+### Chạy trên Android
+```bash
+flutter run
+```
+
+### Chạy trên iOS (macOS)
+```bash
+cd ios
+pod install
+cd ..
+flutter run
+```
+
+### Chạy chọn thiết bị cụ thể
+Liệt kê thiết bị:
+```bash
+flutter devices
+```
+
+Chạy với device id:
+```bash
+flutter run -d <device_id>
+```
+
+---
+
+## 4) Build bản phát hành (Release)
+
+### Android APK
+```bash
+flutter build apk --release
+```
+
+### Android App Bundle (Play Store)
+```bash
+flutter build appbundle --release
+```
+
+### iOS (cần macOS + Xcode)
+```bash
+flutter build ios --release
+```
+Sau đó mở Xcode để Archive/Export (Product → Archive).
+
+---
+
+## 5) Lỗi thường gặp
+
+### `flutter doctor` báo thiếu SDK/License
+Android licenses:
+```bash
+flutter doctor --android-licenses
+```
+
+### Lỗi CocoaPods (iOS)
+Thử:
+```bash
+cd ios
+pod repo update
+pod install
+cd ..
+```
+
+### Lỗi build (clean & chạy lại)
+```bash
+flutter clean
+flutter pub get
+flutter run
+```
