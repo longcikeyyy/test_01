@@ -2,7 +2,7 @@
 
 Hướng dẫn cài đặt và chạy Flutter app.
 
-> Repo sử dụng chủ yếu: **Dart (Flutter)** và một ph��n **C++/CMake** (native), kèm **Swift** (iOS).
+> Repo sử dụng chủ yếu: **Dart (Flutter)
 
 ---
 
